@@ -1,17 +1,15 @@
 # Fan Courier Python API Client Library
 
-A client developed as a library, easy to integrate in other projects
+A client developed as a library, easy to integrate Fan Courier in Python projects
 
-### Install:
+Official documentation: [https://cloud.mail.ru/public/3ki1/2X2QSMyA2](https://cloud.mail.ru/public/3ki1/2X2QSMyA2)
+
+## Install:
 ```bash
 pip install fan-courier-client
 ```
 
-### Functions
-
-#### Get value from an object by path
-
-#### Usage:
+## Initialization
 
 ```python
 import fan_courier_client
@@ -19,7 +17,7 @@ import fan_courier_client
 client = fan_courier_client.Client(client_id, username, password)
 ```
 
-Client:
+## Get client list
 
 ```python
 client.list()
@@ -41,7 +39,7 @@ client.list()
 ]
 ```
 
-Addresses
+## Get addresses list
 
 ```python
 # Optional fields: 'judet', 'localitate', 'language'
@@ -85,6 +83,8 @@ client.addresses.get()
 ]
 ```
 
+## Get cities list
+
 ```python
 client.addresses.cities()
 ```
@@ -114,7 +114,7 @@ client.addresses.cities()
 ]
 ```
 
-Rates
+## Get rates
 
 ```python
 request_data = {
@@ -139,7 +139,7 @@ client.rates.get(**request_data)
 81.90
 ```
 
-Awb
+## Get AWB in HTML
 
 ```python
 client.awb.get(awb_id=2324000120066)
@@ -148,7 +148,9 @@ client.awb.get(awb_id=2324000120066)
 # html text response
 b'\r\n<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//E... 
 ```
-###
+
+## Create AWB
+
 ```python
 request_data = {
     'tip_serviciu': 'Standard',
@@ -189,6 +191,7 @@ request_data = {
 }
 client.awb.create(**request_data)
 ```
+
 ```python
 [
     OrderedDict([
@@ -199,21 +202,27 @@ client.awb.create(**request_data)
     ])
 ]
 ```
-###
+
+## Export AWB in PDF
+
 ```python
 client.awb.export(awb_id=2324000120066)
 ```
 ```python
 b'%PDF-1.4\n1 0 obj\n<<\n/Title (\xfe\xff)\n/Creator (\xfe\xff)\n/Producer...
 ```
-###
+
+## Delete AWB
+
 ```python
 client.awb.delete(awb_id=2324000120066)
 ```
 ```python
 '2324000120066 DELETED'
 ```
-###
+
+## Track AWB
+
 ```python
 client.awb.tracking(awb_id=2324000120066)
 ```
@@ -237,7 +246,9 @@ client.awb.tracking(awb_id=2324000120066)
   'progressdetail': None
 }
 ```
-###
+
+## Track AWB list
+
 ```python
 client.awb.tracking_list(awb_list=[2324000120066, 2322000120004])
 ```
@@ -264,13 +275,15 @@ client.awb.tracking_list(awb_list=[2324000120066, 2322000120004])
     }
 ]
 ```
+
 ```python
 client.awb.download(awb_id=2322000120004)  # text
 client.awb.download_scan(awb_id=2322000120004)  # text
 client.awb.errors()  # dict list
 ```
 
-Services
+## Get services list
+
 ```python
 client.services.get()
 ```
@@ -300,6 +313,8 @@ client.services.get()
 ]
 ```
 
+## Get remarks list
+
 Remarks
 ```python
 client.remarks.get()
@@ -317,7 +332,9 @@ client.remarks.get()
     'Livrare personala cu CNP/serie CI'
 ]
 ```
-Sheets
+
+## Get sheet by date
+
 ```python
 client.sheets.get(data='17.11.2020')
 ```
@@ -371,7 +388,9 @@ client.sheets.get(data='17.11.2020')
     ...
 ]
 ```
-###
+
+## Export sheet in HTML
+
 ```python
 client.sheets.export()
 ```
@@ -379,7 +398,8 @@ client.sheets.export()
 b'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//E...
 ```
 
-Transfers
+## Get transfers
+
 ```python
 client.transfers.get(data='18.11.2020')
 ```
@@ -404,7 +424,7 @@ client.transfers.get(data='18.11.2020')
 ]
 ```
 
-Orders
+## Get orders
 
 ```python
 client.orders.get(data='17.11.2020')
@@ -439,7 +459,9 @@ client.orders.get(data='17.11.2020')
     ])
 ]
 ```
-###
+
+## Create order
+
 ```python
 request_data = {
     'pers_contact': 'pers_contact',
