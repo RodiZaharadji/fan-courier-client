@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='fan_courier_client',
-    version='0.1',
+    version='0.2',
     description='Fan Courier Python API Client Library',
     long_description=long_description,
     long_description_content_type="text/markdown",
