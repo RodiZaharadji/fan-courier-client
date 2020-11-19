@@ -13,7 +13,7 @@ setup(
     long_description_content_type="text/markdown",
     author='EBS Integrator',
     author_email='office@ebs-integrator.com',
-    # url='',
+    url='https://github.com/RodiZaharadji/fan-courier-client',
     packages=find_packages(exclude=['tests*']),
     include_package_data=True,
     zip_safe=False,
