@@ -25,7 +25,7 @@ Client:
 client.list()
 ```
 
-```json
+```python
 [
   {
     "client_id": "7024738",
@@ -232,7 +232,7 @@ client.awb.tracking(awb_id=2324000120066)
 |42|Adresa gresita|
 |43|Retur|
 |47|Predat partener extern|
-```json
+```python
 {
   'progressdetail': None
 }
