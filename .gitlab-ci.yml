@@ -1,0 +1,25 @@
+---
+stages:
+  - pypi
+
+services:
+  - docker:dind
+
+pypi:
+  stage: pypi
+  image:
+    name: python:3.7-slim-stretch
+  script:
+    - pip install twine
+    - rm -rf dist
+    - echo "[distutils]" >> ~/.pypirc
+    - echo "index-servers =" >> ~/.pypirc
+    - echo "    nexus" >> ~/.pypirc
+    - echo "" >> ~/.pypirc
+    - echo "[nexus]" >> ~/.pypirc
+    - echo "repository:${PYPI_REPO}" >> ~/.pypirc
+    - echo "username:${PYPI_USER}" >> ~/.pypirc
+    - echo "password:${PYPI_PASSWORD}" >> ~/.pypirc
+    - python3 setup.py check sdist
+    - python setup.py sdist
+    - twine upload -r nexus dist/*.tar.gz

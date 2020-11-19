@@ -1,0 +1,7 @@
+[run]
+branch = True
+source = fan_courier_client
+
+[report]
+exclude_lines =
+    pragma: no cover
