@@ -2,7 +2,8 @@
 
 A client developed as a library, easy to integrate Fan Courier in Python projects
 
-Official documentation: [https://cloud.mail.ru/public/3ki1/2X2QSMyA2](https://cloud.mail.ru/public/3ki1/2X2QSMyA2)
+Official documentation: [https://cloud.mail.ru/public/3ki1/2X2QSMyA2](https://cloud.mail.ru/public/3ki1/2X2QSMyA2) \
+Details: [https://cloud.mail.ru/public/4Gyq/5pNssPQ7W](https://cloud.mail.ru/public/4Gyq/5pNssPQ7W)
 
 ## Install:
 ```bash
