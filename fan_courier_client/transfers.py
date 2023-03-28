@@ -9,7 +9,7 @@ from fan_courier_client.utils import csv_to_json
 class Transfer(BaseObject):
     get_transfers_url = 'export_raport_viramente_integrat.php'
 
-    @validate({'data': {'regex': '\d\d.\d\d.\d\d\d\d'}})
+    @validate({'data': {'regex': r'\d\d.\d\d.\d\d\d\d'}})
     def get(self, **kwargs):
         kwargs.update(self.params)
         response = requests.post(f'{MAIN_URL}/{self.get_transfers_url}', data=kwargs)

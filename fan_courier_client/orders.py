@@ -10,7 +10,7 @@ class Order(BaseObject):
     get_orders_url = 'export_comenzi_integrat.php'
     create_order_url = 'comanda_curier_integrat.php'
 
-    @validate({'data': {'regex': '\d\d.\d\d.\d\d\d\d'}})
+    @validate({'data': {'regex': r'\d\d.\d\d.\d\d\d\d'}})
     def get(self, **kwargs):
         kwargs.update(self.params)
         response = requests.post(f'{MAIN_URL}/{self.get_orders_url}', data=kwargs)
@@ -25,7 +25,7 @@ class Order(BaseObject):
         },
         'email': {
             'type': str,
-            'regex': '^\S+@\S+$'
+            'regex': r'^\S+@\S+$'
         },
         'greutate': {
             'type': int,
@@ -41,7 +41,7 @@ class Order(BaseObject):
         },
         'ora_ridicare': {
             'type': str,
-            'regex': '\d\d:\d\d'
+            'regex': r'\d\d:\d\d'
         },
         'nr_colete': {
             'type': int,
