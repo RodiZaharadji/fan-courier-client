@@ -10,7 +10,7 @@ class Sheet(BaseObject):
     get_sheet_url = 'export_borderou_integrat.php'
     export_sheet_url = 'finalizare_borderou_integrat.php'
 
-    @validate({'data': {'regex': '\d\d.\d\d.\d\d\d\d'}})
+    @validate({'data': {'regex': r'\d\d.\d\d.\d\d\d\d'}})
     def get(self, **kwargs):
         kwargs.update(self.params)
         response = requests.post(f'{MAIN_URL}/{self.get_sheet_url}', data=kwargs)
